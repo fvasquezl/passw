@@ -37,11 +37,8 @@ class ListCredentialTest extends TestCase
         Credential::factory()->count(3)->create([
             'user_id' => $user->id,
         ]);
-
-
-
+        /// pedirle a grok que me explique el codigo de arriba
     }
-
 
 
     #[Test]
