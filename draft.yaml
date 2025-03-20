@@ -1,0 +1,23 @@
+models:
+  # ...
+  Credential:
+    user_id: foreign:users
+    category_id: foreign:categories nullable
+    name: string
+    username: string nullable
+    password: string
+    salt: string
+    notes: text nullable
+    shareable: boolean default:false
+    timestamps: true
+    relationships:
+      belongsTo:
+        - User
+        - Category
+  Category:
+    name: string:unique
+    timestamps: true
+    relationships:
+      hasMany:
+        - Credential
+

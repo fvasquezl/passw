@@ -1,0 +1,11 @@
+created:
+    - database/factories/CredentialFactory.php
+    - database/factories/CategoryFactory.php
+    - database/migrations/2025_03_19_221514_create_credentials_table.php
+    - database/migrations/2025_03_19_221515_create_categories_table.php
+    - app/Models/Credential.php
+    - app/Models/Category.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
+    Credential: { user_id: 'foreign:users', category_id: 'foreign:categories nullable', name: string, username: 'string nullable', password: string, salt: string, notes: 'text nullable', shareable: 'boolean default:false', timestamps: timestamps, relationships: { belongsTo: 'User Category' } }
+    Category: { name: 'string:unique', timestamps: timestamps, relationships: { hasMany: Credential } }
